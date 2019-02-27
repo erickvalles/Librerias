@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,11 +16,26 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        val palabras = listOf("Esta","es","mi","lista","de","palabras")//size = 6
+
+
+        var indice = 0
+
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+
+            comoquieranponerle.text = palabras.get(indice)
+            if (indice<palabras.size-1){
+                indice++
+            }else{
+                indice = 0
+            }
+
+
+            //Snackbar.make(view, "Se ha cambiado la palabra", Snackbar.LENGTH_LONG)
+              //  .setAction("Action", null).show()
         }
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
